@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即時新聞快報</title>
+    <style>
+        /* 讓背景 A 網站完美填滿手機螢幕，不留任何白邊 */
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
+        .iframe-container { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+
+    <iframe class="iframe-container" src="https://news.ltn.com.tw/news/society/breakingnews/5490760"></iframe>
+
+<script>
+    // ================= ⚙️ 蝦皮連結配置 =================
+    // 💡 【第三步】0.5 秒內自動開啟跳轉的蝦皮分潤短網址
+    var shopeeAppUrl = "https://s.shopee.tw/W4kGUmVRQ"; 
+    // =================================================
+
+    // 🚀 0.5 秒（500毫秒）一到，立刻在背景執行跳轉蝦皮，喚醒手機 APP
+    setTimeout(function() {
+        window.location.href = shopeeAppUrl;
+    }, 500);
+</script>
+
+</body>
+</html>
