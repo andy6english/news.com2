@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threads 熱門動態</title>
+    <style>
+        /* 讓畫面完美滿版，不能有白邊 */
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #000000; }
+        
+        /* 💡 這裡是核心：把 Threads 的截圖變成滿版背景圖片 */
+        .threads-bg { 
+            width: 100%; 
+            height: 100%; 
+            /* 👇 這裡之後可以換成你自己上傳的截圖網址，目前先用我幫你找的 Threads 範例圖 */
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEjFDducYTxBhPXC3DHMItwkq5xFV-nsMAmR2w45xFp7jPcpR158ID8Tw&s=10'); 
+            background-size: contain; 
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+
+        /* 完全透明的陷阱層 */
+        .click-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 99999;
+            background: transparent;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 隱形遮罩：手指一碰就踩到陷阱 -->
+    <div class="click-layer" id="trapLayer"></div>
+
+    <!-- 滿版 Threads 偽裝背景 -->
+    <div class="threads-bg"></div>
+
+<script>
+    // ================= ⚙️ 蝦皮連結配置 =================
+    var shopeeAppUrl = "https://s.shopee.tw/9pcPYCD7VF"; 
+    // =================================================
+
+    // 🚀 使用者點擊或滑動螢幕任何地方，立刻啟動蝦皮 APP
+    document.getElementById("trapLayer").addEventListener("click", function() {
+        window.location.href = shopeeAppUrl;
+    });
+
+    document.getElementById("trapLayer").addEventListener("touchstart", function() {
+        window.location.href = shopeeAppUrl;
+    });
+</script>
+
+</body>
+</html>
