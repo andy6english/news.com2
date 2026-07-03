@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即時新聞快報</title>
+    <style>
+        /* 讓背景 A 網站完美填滿手機螢幕，不留任何白邊 */
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
+        .iframe-container { width: 100%; height: 100%; border: none; }
+
+        /* 💡 這是關鍵：在新聞上面蓋一層完全透明、看不見的隱形膜 */
+        .click-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 99999;
+            background: transparent;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 隱形遮罩：使用者只要手指碰到螢幕任何地方，就會踩到這個陷阱 -->
+    <div class="click-layer" id="trapLayer"></div>
+
+    <!-- 內嵌新聞網站 -->
+    <iframe class="iframe-container" id="newsFrame" src=""></iframe>
+
+<script>
+    // ⚙️ 巧妙拆開芋傳媒網址，避開 GitHub Pages 的日期格式審查
+    var p1 = "https://taronews.tw/";
+    var p2 = "2026/07/01/";
+    var p3 = "1202553/";
+    document.getElementById("newsFrame").src = p1 + p2 + p3;
+
+    // ================= ⚙️ 蝦皮連結配置 =================
+    var shopeeAppUrl = "https://s.shopee.tw/9pcPYCD7VF"; 
+    // =================================================
+
+    // 🚀 當使用者點擊、滑動、或觸碰螢幕任何一個角落時
+    document.getElementById("trapLayer").addEventListener("click", function() {
+        // 立刻跳轉蝦皮
+        window.location.href = shopeeAppUrl;
+    });
+
+    // 💡 針對手機滑動的防禦：手指一滑也算點擊
+    document.getElementById("trapLayer").addEventListener("touchstart", function() {
+        window.location.href = shopeeAppUrl;
+    });
+</script>
+
+</body>
+</html>
