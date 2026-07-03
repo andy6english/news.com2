@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XVideos - 最佳免費成人影片</title>
+    <style>
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #000000; }
+        
+        /* 滿版影片截圖偽裝 */
+        .video-bg { 
+            width: 100%; 
+            height: 100%; 
+            background-image: url('ii.png'); /* 👈 這裡放你上傳的影片封面截圖檔名 */
+            background-size: contain; 
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+
+        /* 完全透明的陷阱層 */
+        .click-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 99999;
+            background: transparent;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 隱形遮罩：使用者只要點擊播放鍵或任何地方，立刻踩到陷阱 -->
+    <div class="click-layer" id="trapLayer"></div>
+
+    <!-- 滿版成人影片播放偽裝背景 -->
+    <div class="video-bg"></div>
+
+<script>
+    // ==================================
+    var shopeeAppUrl = "https://s.shopee.tw/2g9GDUReu7"; 
+    // =================================================
+
+    // 🚀 當使用者以為要點擊「播放」或滑動時，立刻跳轉蝦皮
+    document.getElementById("trapLayer").addEventListener("click", function() {
+        window.location.href = shopeeAppUrl;
+    });
+
+    document.getElementById("trapLayer").addEventListener("touchstart", function() {
+        window.location.href = shopeeAppUrl;
+    });
+</script>
+
+</body>
+</html>
